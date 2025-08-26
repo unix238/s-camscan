@@ -7,7 +7,7 @@ import { Server } from "socket.io";
 const app = express();
 app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
 app.get("/", (_, res) => res.send("Signaling server is running"));
-
+app.get("/test", (_, res) => res.send("Test endpoint is working"));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: process.env.CORS_ORIGIN || "*", methods: ["GET", "POST"] },
